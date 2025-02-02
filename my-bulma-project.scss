@@ -1,0 +1,54 @@
+// Set your brand colors from the style guide
+$soft-blue: hsl(231, 69%, 60%);
+$soft-red: hsl(0, 94%, 66%);
+$grayish-blue: hsl(229, 8%, 60%);
+$very-dark-blue: hsl(229, 31%, 21%);
+
+// Override global Sass variables from the /utilities folder
+@use 'bulma/sass/utilities' with (
+  $family-primary: 'Rubik, sans-serif',
+  // Substitui Nunito por Rubik
+  $grey-dark: $very-dark-blue,
+  $grey-light: $grayish-blue,
+  $primary: $soft-blue,
+  $link: $soft-red,
+  $control-border-width: 2px
+);
+
+// Override Sass variables from the /form folder
+@use 'bulma/sass/form' with (
+  $input-shadow: none
+);
+
+// Import the components you need
+@forward 'bulma/sass/base';
+@forward 'bulma/sass/components/card';
+@forward 'bulma/sass/components/modal';
+@forward 'bulma/sass/components/navbar';
+@forward 'bulma/sass/elements/button';
+@forward 'bulma/sass/elements/icon';
+@forward 'bulma/sass/elements/content';
+@forward 'bulma/sass/elements/notification';
+@forward 'bulma/sass/elements/progress';
+@forward 'bulma/sass/elements/tag';
+@forward 'bulma/sass/elements/title';
+@forward 'bulma/sass/layout/footer';
+
+// Import the themes so that all CSS variables have a value
+@forward 'bulma/sass/themes';
+
+// Adiciona responsividade básica - ajuste conforme necessário
+@media screen and (max-width: 768px) {
+  // Estilos para telas menores que 768px
+  .container {
+    max-width: 95%; //Ajusta a largura máxima do container para telas menores
+  }
+}
+
+// Definição do tamanho da fonte do body
+body {
+  font-size: 18px; // Tamanho da fonte do corpo conforme o guia de estilo
+}
+
+// Import the Google Font - Rubik
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;500&display=swap');
